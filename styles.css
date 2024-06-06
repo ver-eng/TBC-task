@@ -290,7 +290,7 @@ body {
   display: none;
 }
 
-.first-question {
+.question-box {
   border-bottom: 1px solid #555;
   padding-bottom: 1rem;
   /* background-color: red; */
@@ -314,7 +314,10 @@ body {
   font-size: 1.6rem;
   line-height: 1.1;
   font-family: sans-serif;
-  /* background-color: green; */
+  overflow: hidden;
+  opacity: 0;
+  /* transition: opacity 2s; */
+  /* height: 0; */
 }
 .steps-box {
   padding: 2.5rem 0 2.5rem 2.5rem;
@@ -324,6 +327,27 @@ body {
   /* background-color: red; */
 }
 
-.active {
+.active .question-answer {
   display: block;
+  /* background-color: green; */
+  /* transition: opacity 1s ease, height 1s ease; */
+  transition: opacity 2s;
+
+  opacity: 1;
+  /* height: 100%; */
+}
+.active-chevron {
+  display: block;
+}
+/* SECTION FIVE */
+.section-five {
+  background-color: #2b2929;
+}
+.footer {
+  padding: 4rem;
+  max-width: 100rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

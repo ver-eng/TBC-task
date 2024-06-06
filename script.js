@@ -14,7 +14,8 @@ const carouselBox = document.querySelector(".carousel-box");
 const leftBtn = document.querySelector(".btn--left");
 const rightBtn = document.querySelector(".btn--right");
 
-const questionHeader = document.querySelector(".question-header");
+const questionHeader = document.querySelectorAll(".question-header");
+const QuestionBox = document.querySelectorAll(".question-box");
 const chevronUp = document.querySelector(".chevron-up");
 const chevronDown = document.querySelector(".chevron-down");
 const Answers = document.querySelector(".question-answer");
@@ -137,9 +138,27 @@ function fadeIn(element, duration) {
 //     // console.log(dots);
 //   })
 // );
-questionHeader.addEventListener("click", function () {
-  console.log("clicked");
-  chevronDown.classList.toggle("active");
-  chevronUp.classList.toggle("active");
-  Answers.classList.toggle("active");
+// questionHeader.addEventListener("click", function () {
+//   console.log("clicked");
+//   chevronDown.classList.toggle("active");
+//   chevronUp.classList.toggle("active");
+//   Answers.classList.toggle("active");
+// });
+
+questionHeader.forEach((header) => {
+  header.addEventListener("click", function () {
+    const askedQuestion = header.parentElement;
+    askedQuestion.classList.toggle("active");
+
+    const chevronUp = askedQuestion.querySelector(".chevron-up");
+    const chevronDown = askedQuestion.querySelector(".chevron-down");
+    chevronUp.classList.toggle("active-chevron");
+    chevronDown.classList.toggle("active-chevron");
+
+    QuestionBox.forEach((box) => {
+      if (box !== askedQuestion) {
+        box.classList.remove("active");
+      }
+    });
+  });
 });
