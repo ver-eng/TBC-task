@@ -14,6 +14,11 @@ const carouselBox = document.querySelector(".carousel-box");
 const leftBtn = document.querySelector(".btn--left");
 const rightBtn = document.querySelector(".btn--right");
 
+const questionHeader = document.querySelector(".question-header");
+const chevronUp = document.querySelector(".chevron-up");
+const chevronDown = document.querySelector(".chevron-down");
+const Answers = document.querySelector(".question-answer");
+
 // const
 console.log(leftBtn);
 console.log(rightBtn);
@@ -24,14 +29,13 @@ let currentPage = 1;
 function renderItems() {
   const start = (currentPage - 1) * itemsPerPage;
   const end = start + itemsPerPage;
-  partnerBox.classList.add(".fade");
-  partnerBox.innerHTML = "";
 
+  partnerBox.innerHTML = "";
   partnerPhotos.slice(start, end).forEach((photo) => {
     const photoDiv = document.createElement("div");
-    // fadeOut(partnerBox.innerHTML, 500);
+    // photoDiv = document.createElement("div");
 
-    photoDiv.classList.add("fade");
+    // photoDiv.classList.add("fade");
     console.log(photoDiv);
     photoDiv.innerHTML = `<img
     src="photos/${photo}"
@@ -44,7 +48,7 @@ function renderItems() {
       partnerBox.classList.remove("third-box-one-child");
     }
     partnerBox.appendChild(photoDiv);
-    fadeIn(photoDiv, 500);
+    fadeIn(photoDiv, 1500);
   });
 }
 
@@ -110,27 +114,14 @@ function fadeOut(element, duration) {
     }
   }, interval);
 }
-// function fadeIn(element, duration) {
-//   let opacity = 0;
-//   const interval = 50;
-//   const increment = interval / duration;
 
-//   const fadeEffect = setInterval(() => {
-//     if (opacity === 0) {
-//       opacity += increment;
-//       element.style.opacity = opacity;
-//     } else {
-//       clearInterval(fadeEffect);
-//     }
-//   }, interval);
-// }
 function fadeIn(element, duration) {
   element.style.opacity = 0;
   let opacity = 0;
-  const interval = 50;
+  const interval = 100;
   const increment = interval / duration;
 
-  element.style.display = "block"; // Ensure the element is displayed
+  // element.style.display = "block"; // Ensure the element is displayed
 
   const fadeEffect = setInterval(() => {
     if (opacity < 1) {
@@ -146,3 +137,9 @@ function fadeIn(element, duration) {
 //     // console.log(dots);
 //   })
 // );
+questionHeader.addEventListener("click", function () {
+  console.log("clicked");
+  chevronDown.classList.toggle("active");
+  chevronUp.classList.toggle("active");
+  Answers.classList.toggle("active");
+});
