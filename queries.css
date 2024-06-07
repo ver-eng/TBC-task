@@ -1,0 +1,191 @@
+/*****************************/
+/*Below 1056px(tablets)*/
+/*****************************/
+@media (max-width: 66em) {
+  html {
+    font-size: 55%;
+  }
+  .navigation,
+  .main-text,
+  .section-two-div,
+  .partners-p,
+  .footer {
+    max-width: 90rem;
+  }
+  .section-four-div {
+    max-width: 85rem;
+    padding: 7rem 2rem;
+  }
+  .each-partners-box {
+    padding: 4rem 2.5rem;
+    /* background-color: gray; */
+    height: 10rem;
+  }
+  .partner-logo {
+    width: 90%;
+  }
+  .footer {
+    padding: 4rem 3rem;
+  }
+  .course-name {
+    padding: 2.5rem 2rem;
+    font-size: 1.5rem;
+  }
+  .register-date {
+    font-size: 1.4rem;
+    padding: 0 0 7rem 2rem;
+  }
+  .secondary-heading {
+    padding-left: 14rem;
+  }
+}
+/*****************************/
+/*Below 848px(tablets)*/
+/*****************************/
+@media (max-width: 53em) {
+  html {
+    font-size: 50%;
+  }
+  .navigation,
+  .main-text,
+  .section-two-div,
+  .partners-p,
+  .footer {
+    max-width: 85rem;
+  }
+  .partner-logo {
+    width: 80%;
+  }
+  .section-four-div {
+    max-width: 75rem;
+    padding: 6rem 2rem;
+  }
+  .main-text {
+    padding: 6rem 2.5rem;
+    font-size: 2.5rem;
+    line-height: 1.5;
+  }
+  .each-course-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .secondary-heading {
+    padding-left: 12rem;
+  }
+  .nav-right-part {
+    gap: 3rem;
+  }
+}
+/*****************************/
+/*Below 688px*/
+/*****************************/
+
+@media (max-width: 43em) {
+  html {
+    font-size: 48%;
+  }
+  .navigation,
+  .main-text,
+  .section-two-div,
+  .partners-p,
+  .footer {
+    max-width: 75rem;
+  }
+  .courses {
+    row-gap: 2.5rem;
+    column-gap: 2.5rem;
+  }
+  .each-course-box a:link,
+  .each-course-box a:visited {
+    padding-left: 1.5rem;
+    font-size: 1.6rem;
+    margin-bottom: 0;
+  }
+  .each-course-box {
+    padding-bottom: 2rem;
+  }
+
+  .section-four-div {
+    max-width: 70rem;
+    padding: 5.5rem 2rem;
+  }
+  .secondary-heading {
+    padding-left: 9rem;
+  }
+}
+/*****************************/
+/*Below 560*/
+/*****************************/
+@media (max-width: 35em) {
+  html {
+    font-size: 45%;
+  }
+  .navigation,
+  .main-text,
+  .section-two-div,
+  .partners-p,
+  .footer {
+    max-width: 70rem;
+  }
+  .section-four-div {
+    max-width: 65rem;
+    padding: 5rem 1.8rem;
+  }
+  .nav-right-part {
+    gap: 2rem;
+  }
+  .secondary-heading {
+    padding-left: 6rem;
+  }
+}
+/*****************************/
+/*Below 448*/
+/*****************************/
+@media (max-width: 28em) {
+  .navigation,
+  .main-text,
+  .section-two-div,
+  .partners-p,
+  .footer {
+    max-width: 60rem;
+  }
+  .section-four-div {
+    max-width: 50rem;
+    padding: 4rem 1.5rem;
+  }
+  .courses {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 3rem;
+    column-gap: 3rem;
+  }
+  .header-div h2 {
+    font-size: 2.5rem;
+  }
+  .nav-link:link,
+  .nav-link:visited {
+    font-size: 1.4rem;
+  }
+  .logo-text:nth-child(2) {
+    font-size: 1.5rem;
+  }
+  .logo-text:nth-child(3) {
+    font-size: 1.7rem;
+  }
+  .logo {
+    width: 4rem;
+  }
+  .nav-logo {
+    gap: 0.7rem;
+  }
+  .secondary-heading {
+    font-size: 3rem;
+    font-weight: 800;
+    padding-left: 4rem;
+  }
+  .main-text {
+    font-size: 2rem;
+    line-height: 1.4;
+  }
+}
