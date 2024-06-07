@@ -24,7 +24,6 @@ document.addEventListener("scroll", () => {
   const header = document.querySelector(".header-stick");
   header.style.opacity = ".95";
   const rect = header.getBoundingClientRect();
-  console.log(window.scrollY);
   if (window.scrollY === 0) {
     header.style.opacity = "1";
   }
@@ -32,12 +31,16 @@ document.addEventListener("scroll", () => {
 
 const itemsPerPage = 3;
 let currentPage = 1;
+let timeoutId;
 
 function renderItems() {
   const start = (currentPage - 1) * itemsPerPage;
   const end = start + itemsPerPage;
-
   partnerBox.innerHTML = "";
+
+  partnerBox.classList.remove("hidden");
+  partnerBox.classList.add("visible");
+
   partnerPhotos.slice(start, end).forEach((photo) => {
     const photoDiv = document.createElement("div");
     // photoDiv = document.createElement("div");
@@ -54,7 +57,47 @@ function renderItems() {
       partnerBox.classList.remove("third-box-one-child");
     }
     partnerBox.appendChild(photoDiv);
-    fadeIn(photoDiv, 1500);
+    timeoutId = setTimeout(() => {
+      console.log("timeout");
+      partnerBox.classList.add("hidden");
+      partnerBox.classList.remove("visible");
+
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+        console.log("Timeout cleared.");
+      }
+    }, 2500);
+  });
+}
+
+function renderItemsWitoutTimeOut() {
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  partnerBox.innerHTML = "";
+
+  partnerPhotos.slice(start, end).forEach((photo) => {
+    const photoDiv = document.createElement("div");
+    // photoDiv = document.createElement("div");
+
+    // photoDiv.classList.add("fade");
+    photoDiv.innerHTML = `<img
+    src="photos/${photo}"
+    alt="USAID LOGO"
+    class="partner-logo"
+    />`;
+    if (photo === partnerPhotos.at(partnerPhotos.length - 1)) {
+      partnerBox.classList.add("third-box-one-child");
+    } else {
+      partnerBox.classList.remove("third-box-one-child");
+    }
+    partnerBox.appendChild(photoDiv);
+    partnerBox.classList.remove("hidden");
+    partnerBox.classList.add("visible");
+    // setTimeout(() => {
+    //   partnerBox.classList.add("hidden");
+    //   partnerBox.classList.remove("visible");
+    // }, 3000);
   });
 }
 
@@ -67,19 +110,23 @@ const changePartnerLogos = () => {
   renderItems();
 };
 function startCarousel() {
-  intervalId = setInterval(changePartnerLogos, 3000);
-}
-function stopCarousel() {
-  clearInterval(intervalId);
+  intervalId = setInterval(changePartnerLogos, 4000);
 }
 startCarousel();
 
+function stopCarousel() {
+  clearInterval(intervalId);
+  if (timeoutId) {
+    clearTimeout(timeoutId);
+    timeoutId = null;
+    console.log("Timeout cleared.");
+  }
+}
+
 carouselBox.addEventListener("mouseover", function () {
-  console.log("hover");
   stopCarousel();
 });
 carouselBox.addEventListener("mouseout", function () {
-  console.log("out");
   startCarousel();
 });
 leftBtn.addEventListener("click", function () {
@@ -87,23 +134,38 @@ leftBtn.addEventListener("click", function () {
   if (currentPage === 1) {
     currentPage = 3;
 
-    renderItems();
+    renderItemsWitoutTimeOut();
   } else if (currentPage === 2 || currentPage === 3) {
     --currentPage;
 
-    renderItems();
+    renderItemsWitoutTimeOut();
   }
 });
 rightBtn.addEventListener("click", function () {
   console.log(currentPage);
+  if (timeoutId) {
+    clearTimeout(timeoutId);
+    timeoutId = null;
+    console.log("Timeout cleared.");
+  }
   if (currentPage === 3) {
     currentPage = 1;
 
-    renderItems();
+    renderItemsWitoutTimeOut();
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+      timeoutId = null;
+      console.log("Timeout cleared.");
+    }
   } else if (currentPage === 2 || currentPage === 1) {
     currentPage++;
 
-    renderItems();
+    renderItemsWitoutTimeOut();
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+      timeoutId = null;
+      console.log("Timeout cleared.");
+    }
   }
 });
 function fadeOut(element, duration) {
@@ -138,21 +200,16 @@ function fadeIn(element, duration) {
     }
   }, interval);
 }
-// dots.forEach((dot) =>
-//   dot.addEventListener("click", function (e) {
-//     // console.log(dots);
-//   })
-// );
-// questionHeader.addEventListener("click", function () {
-//   console.log("clicked");
-//   chevronDown.classList.toggle("active");
-//   chevronUp.classList.toggle("active");
-//   Answers.classList.toggle("active");
-// });
+
 function showPage(pageNumber) {
+  if (timeoutId) {
+    clearTimeout(timeoutId);
+    timeoutId = null;
+    console.log("Timeout cleared.");
+  }
   currentPage = pageNumber;
 
-  renderItems();
+  renderItemsWitoutTimeOut();
 }
 
 questionHeader.forEach((header) => {

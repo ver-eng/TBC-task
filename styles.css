@@ -86,6 +86,10 @@ body {
 .nav-link:active {
   color: rgb(12, 140, 179);
 }
+.active-link {
+  color: rgb(12, 140, 177) !important;
+}
+
 .background-photo {
   background-image: url("photos/93e8a3_9fa23196ddf6427a9da574e2b31a13d2~mv2.webp");
   background-repeat: no-repeat;
@@ -364,10 +368,68 @@ body {
   background-color: #2b2929;
 }
 .footer {
-  padding: 4rem;
-  max-width: 100rem;
+  padding: 5rem 4rem;
+  /* background-color: red; */
+  max-width: 106rem;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.footer-left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.copyright,
+.rules-link:link,
+.rules-link:visited {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  color: #eee;
+  text-decoration: none;
+}
+.rules-link:hover,
+.rules-link:active {
+  color: #999;
+  transition: color 0.3s;
+}
+.footer-right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5rem;
+  align-items: flex-end;
+}
+.social-media-links {
+  display: flex;
+  gap: 1rem;
+}
+.email-btn {
+  background-color: rgb(44, 197, 240);
+  border: none;
+  padding: 1.1rem 2.9rem;
+  border-radius: 5px;
+}
+.email-link {
+  font-family: sans-serif;
+  text-decoration: none;
+  font-size: 1.7rem;
+  color: #fff;
+  letter-spacing: 0.4px;
+}
+/* //////////////////////////////////////////////////////////// */
+.fade {
+  transition: opacity 1s ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
 }
