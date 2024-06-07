@@ -15,10 +15,26 @@ body {
 /* FIRST SECTION */
 .header {
   background-color: #333;
+  /* padding-top: 8rem; */
 }
 .section-one {
   background-color: #444;
+  /* background-color: red; */
 }
+
+.header-stick {
+  background-color: #222;
+  width: 100%;
+  /* opacity: 0.95; */
+  position: relative;
+  transition: all 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
 .navigation {
   display: flex;
   max-width: 105rem;
@@ -26,6 +42,9 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 2.5rem;
+  /* z-index: 1000; */
+  /* background-color: red; */
+  height: 8rem;
 }
 .nav-logo {
   display: flex;
@@ -76,6 +95,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  margin-top: 8rem;
 }
 .secondary-heading {
   color: #fff;

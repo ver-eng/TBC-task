@@ -20,9 +20,15 @@ const chevronUp = document.querySelector(".chevron-up");
 const chevronDown = document.querySelector(".chevron-down");
 const Answers = document.querySelector(".question-answer");
 
-// const
-console.log(leftBtn);
-console.log(rightBtn);
+document.addEventListener("scroll", () => {
+  const header = document.querySelector(".header-stick");
+  header.style.opacity = ".95";
+  const rect = header.getBoundingClientRect();
+  console.log(window.scrollY);
+  if (window.scrollY === 0) {
+    header.style.opacity = "1";
+  }
+});
 
 const itemsPerPage = 3;
 let currentPage = 1;
@@ -37,7 +43,6 @@ function renderItems() {
     // photoDiv = document.createElement("div");
 
     // photoDiv.classList.add("fade");
-    console.log(photoDiv);
     photoDiv.innerHTML = `<img
     src="photos/${photo}"
     alt="USAID LOGO"
@@ -144,6 +149,11 @@ function fadeIn(element, duration) {
 //   chevronUp.classList.toggle("active");
 //   Answers.classList.toggle("active");
 // });
+function showPage(pageNumber) {
+  currentPage = pageNumber;
+
+  renderItems();
+}
 
 questionHeader.forEach((header) => {
   header.addEventListener("click", function () {

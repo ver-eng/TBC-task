@@ -11,19 +11,21 @@
     <div class="whole-page">
       <section class="section-one">
         <header class="header">
-          <nav class="navigation">
-            <div class="nav-logo">
-              <img src="photos/tbc.png" alt="TBC logo" class="logo" />
-              <span class="logo-text">X</span>
-              <span class="logo-text">აკადემია</span>
-            </div>
-            <ul class="nav-right-part">
-              <li><a href="#" class="nav-link">მთავარი</a></li>
-              <li><a href="#" class="nav-link">TBC IT</a></li>
-              <li><a href="#" class="nav-link">TBC x USAID</a></li>
-              <li><a href="#" class="nav-link">რისკები</a></li>
-            </ul>
-          </nav>
+          <div class="header-stick">
+            <nav class="navigation">
+              <div class="nav-logo">
+                <img src="photos/tbc.png" alt="TBC logo" class="logo" />
+                <span class="logo-text">X</span>
+                <span class="logo-text">აკადემია</span>
+              </div>
+              <ul class="nav-right-part">
+                <li><a href="#" class="nav-link">მთავარი</a></li>
+                <li><a href="#" class="nav-link">TBC IT</a></li>
+                <li><a href="#" class="nav-link">TBC x USAID</a></li>
+                <li><a href="#" class="nav-link">რისკები</a></li>
+              </ul>
+            </nav>
+          </div>
           <div class="background-photo">
             <h2 class="secondary-heading">TBC x USAID</h2>
             <h2 class="secondary-heading">ტექნოლოგიური განათლებისთვის</h2>
@@ -163,9 +165,15 @@
             <div class="box-and-dots">
               <div class="each-partners-box"></div>
               <div class="dots">
-                <button class="dot dot--fill dot-one">&nbsp;</button>
-                <button class="dot dot-two">&nbsp;</button>
-                <button class="dot dot-three">&nbsp;</button>
+                <button class="dot dot--fill dot-one" onclick="showPage(1)">
+                  &nbsp;
+                </button>
+                <button class="dot dot-two" onclick="showPage(2)">
+                  &nbsp;
+                </button>
+                <button class="dot dot-three" onclick="showPage(3)">
+                  &nbsp;
+                </button>
               </div>
             </div>
 
